@@ -34,6 +34,14 @@ module Foreman::Model
       attrs[:tenant] = name
     end
 
+    def region
+      attrs[:region]
+    end
+
+    def region=(name)
+      attrs[:region] = name
+    end
+
     def test_connection(options = {})
       super
       errors[:user].empty? and errors[:password] and tenants
@@ -113,7 +121,8 @@ module Foreman::Model
                                      :openstack_api_key  => password,
                                      :openstack_username => user,
                                      :openstack_auth_url => url,
-                                     :openstack_tenant   => tenant)
+                                     :openstack_tenant   => tenant,
+                                     :openstack_region   => region)
     end
 
     def network_client
@@ -121,7 +130,8 @@ module Foreman::Model
                                              :openstack_api_key  => password,
                                              :openstack_username => user,
                                              :openstack_auth_url => url,
-                                             :openstack_tenant   => tenant)
+                                             :openstack_tenant   => tenant,
+                                             :openstack_region   => region)
     rescue
       @network_client = nil
     end
