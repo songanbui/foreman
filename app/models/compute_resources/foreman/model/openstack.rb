@@ -32,7 +32,7 @@ module Foreman::Model
     end
 
     def tenant=(name)
-      attrs[:tenant] = name
+        attrs[:tenant] = name
     end
 
     def region
@@ -40,7 +40,11 @@ module Foreman::Model
     end
 
     def region=(name)
-      attrs[:region] = name
+      if name.length > 0
+        attrs[:region] = name
+      else
+        attrs[:region] = nil
+      end
     end
 
     def test_connection(options = {})
