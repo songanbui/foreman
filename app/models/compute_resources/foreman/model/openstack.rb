@@ -32,7 +32,7 @@ module Foreman::Model
     end
 
     def tenant=(name)
-        attrs[:tenant] = name
+      attrs[:tenant] = name
     end
 
     def region
