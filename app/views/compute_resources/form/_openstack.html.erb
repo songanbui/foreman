@@ -1,6 +1,7 @@
 <%= text_f f, :url, :size => "col-md-8", :help_block => _("e.g. http://openstack:5000/v2.0/tokens") %>
 <%= text_f f, :user %>
 <%= password_f f, :password %>
+<%= text_f f, :region %>
 
 <% tenants = f.object.tenants rescue [] %>
 <%= selectable_f(f, :tenant, tenants, {}, {:label => _('Tenant'), :disabled => tenants.empty?,
