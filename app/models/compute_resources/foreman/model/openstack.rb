@@ -1,6 +1,7 @@
 module Foreman::Model
   class Openstack < ComputeResource
     attr_accessor :tenant
+    attr_accessor :region
     has_one :key_pair, :foreign_key => :compute_resource_id, :dependent => :destroy
     after_create :setup_key_pair
     after_destroy :destroy_key_pair
